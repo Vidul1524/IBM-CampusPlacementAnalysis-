@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Campus Placement Trend</title>
+    <link rel="stylesheet" href="/static/style.css">
+    /*<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">*/
+    <style>
+        /* Style visualization containers */
+        .visualization-container {
+            margin-top: 40px;
+        }
+
+        /* Style visualization headings */
+        .visualization-container h1 {
+            margin-bottom: 10px;
+            font-size: 1.5em;
+        }
+
+        /* Style individual images */
+        .visualization-container img {
+            margin-right: 20px; /* Add spacing between images */
+            max-width: 30%; /* Limit the width of each image */
+        }
+
+        /* Add other styles as needed */
+        .aa {
+            float: right;
+            width: 200px;
+            height: 200px;
+        }
+	body {
+            background-image: url('/static/ds.jpeg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+<body>
+<div class="header-container">
+  <h3>Campus Placement Trend</h3>
+  <div class="image-container">
+    <img src="/static/image.jpg" alt="Campus Image" width="400px" style="width: 400px;">
+  </div>
+</div>
+<form action="/input" method="post">
+    <label for="ssc_p">Enter 10th Grade (in %) :</label>
+    <input type="text" id="ssc_p" name="ssc_p"><br><br>
+    <label for="hsc_p">Enter 12th Grade (in %) :</label>
+    <input type="text" id="hsc_p" name="hsc_p"><br><br>
+    <label for="degree_p">Enter Degree percentage :</label>
+    <input type="text" id="degree_p" name="degree_p"><br><br>
+    <label for="gender">Gender (M:1, F:0) :</label>
+    <input type="text" id="gender" name="gender"><br><br>
+    <label for="workex">Work Experience (Yes:1, No:0) :</label>
+    <input type="text" id="workex" name="workex"><br><br>
+    <label for="etest_p">Employability test (in %) :</label>
+    <input type="text" id="etest_p" name="etest_p"><br><br>
+    <label for="specialisation">MBA-Specialization ( Mkt&HR : 1,Mkt&Fin : 0) :</label>
+    <input type="text" id="specialisation" name="specialisation"><br><br>
+    <label for="mba_p">MBA percentage :</label>
+    <input type="text" id="mba_p" name="mba_p"><br><br>
+    <input type="submit" value="Submit">
+</form>
+<h2 class="output-heading">Output:</h2>
+<div class="output-container">
+    <p class="output-text">{{Output}}</p>
+</div>
+<div class="visualization-container">
+    <h1>Visualization of the placements trends in India</h1>
+    <div style="display: flex; justify-content: space-between;">
+        <img src="{{ url_for('visualize1')}}">
+        <img src="{{ url_for('visualize2')}}">
+        <img src="{{ url_for('visualize3')}}">
+    </div>
+</div>
+</body>
+</html>
